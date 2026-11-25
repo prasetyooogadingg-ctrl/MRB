@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mari Rawat Bersama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Mari Rawat Bersama</h1>
+      <p class="lead">Data fasilitas asrama dan sekolah. Lihat kondisinya, tandai yang rusak, dan bantu sekolah tahu mana yang perlu diperbaiki lebih dulu.</p>
+      <div class="meter" aria-label="Ringkasan kondisi fasilitas">
+        <div class="stat"><strong id="stTotal">0</strong><span>fasilitas terdata</span></div>
+        <div class="stat bad"><strong id="stBad">0</strong><span>bermasalah</span></div>
+        <div class="stat good"><strong id="stGood">0</strong><span>baik</span></div>
+        <div class="bar" role="img" aria-label="Persentase fasilitas baik"><i id="barFill"></i></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="tools" aria-label="Filter">
+      <input id="q" type="search" placeholder="Cari fasilitas atau lokasi…" aria-label="Cari fasilitas">
+      <select id="kat" aria-label="Kategori"></select>
+      <div class="chips" role="group" aria-label="Filter status">
+        <button class="chip on" data-f="semua">Semua</button>
+        <button class="chip" data-f="bermasalah">Bermasalah</button>
+        <button class="chip" data-f="baik">Baik</button>
+      </div>
+    </section>
+
+    <details class="add">
+      <summary>Tambah fasilitas</summary>
+      <form id="addForm">
+        <label>Nama fasilitas<input name="nama" required maxlength="60" placeholder="mis. Mesin cuci"></label>
+        <label>Kategori
+          <select name="kategori" id="addKat"></select>
+        </label>
+        <label>Lokasi<input name="lokasi" required maxlength="60" placeholder="mis. Asrama Putri, Kamar 4"></label>
+        <button type="submit" class="primary">Simpan fasilitas</button>
+      </form>
+    </details>
+
+    <ul id="list" class="grid"></ul>
+    <p id="empty" class="empty" hidden>Tidak ada fasilitas yang cocok. Ubah filter atau tambahkan fasilitas baru.</p>
+
+    <footer class="foot">
+      <button id="exportBtn">Unduh laporan (CSV)</button>
+      <button id="resetBtn" class="ghost">Kembalikan data awal</button>
+      <p>Data tersimpan di browser perangkat ini. Lihat README untuk membagikan data ke semua siswa dan pihak sekolah.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
